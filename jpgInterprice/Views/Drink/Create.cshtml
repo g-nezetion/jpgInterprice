@@ -1,0 +1,119 @@
+﻿cadastro de bebidas 
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div class="form-horizontal">
+
+    <form method="post">
+        <div class="form-group">
+            <label class="control-label col-md-2">Nome</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="Nome" id="Nome" />
+                <span class="text-danger" id="erroNome" name="erroNome"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Teor Alcoolico (%)</label>
+            <div class="col-md-10">
+                <input class="form-control" type="number" name="Alcool" id="Alcool" />
+                <span class="text-danger" id="erroAlcool" name="erroAlcool"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Decrição</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="Decription" id="Decription" />
+                <span class="text-danger" id="erroDecription" name="erroDecription"></span>
+            </div>
+        </div>
+
+        @{
+            string[] coutry = Enum.GetNames(typeof(DTO.Enums.CoutryDrinks));
+        }
+
+        <div class="form-group">
+            <label class="control-label col-md-2">País de origem</label>
+            <div class="col-md-10">
+                <select class="form-control" name="PaisOrigem" id="PaisOrigem">
+                    @for (int i = 0; i < coutry.Length; i++)
+                    {
+                    <option value="@i">@coutry[i]</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        @{
+            string[] quantity = Enum.GetNames(typeof(DTO.Enums.QuantityPerBottle));
+        }
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Qauntidade por Garrafa</label>
+            <div class="col-md-10">
+                <select class="form-control" name="Quantity" id="Quantity">
+                    @for (int i = 0; i < quantity.Length; i++)
+                    {
+                    <option value="@i">@quantity[i]</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input name="BotaoEnviar" id="BotaoEnviar" type="submit" value="Cadastrar" />
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        $("#BotaoEnviar").click(function (e) {
+
+        var nome = $("#Nome").val();
+        var alcool = $("#Alcool").val();
+        var descrption = $("#Deion").val();
+
+        var sucesso = true;
+
+        if (nome == "") {
+        $("#erroNome").html("Nome deve ser informado.");
+        sucesso = false;
+        }
+        else if (nome.length < 5 || nome.length > 40) {
+        $("#erroNome").html("Nome deve conter entre 5 e 40 caracteres.");
+        sucesso = false;
+        }
+        else {
+        $("#erroNome").html("");
+            }
+
+        if (description == "") {
+        $("#erroDescription").html("descrição deve ser informada.");
+        sucesso = false;
+        }
+        else if (description.length < 5 || description.length > 40) {
+        $("#erroDescription").html("descrição deve conter entre 5 e 40 caracteres.");
+        sucesso = false;
+        }
+        else {
+        $("#erroDescription").html("");
+        }
+
+        if (!sucesso) {
+        e.preventDefault();
+        }
+        });
+    </script>
+}
+

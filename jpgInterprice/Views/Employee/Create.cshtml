@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div class="form-horizontal">
+
+    <form method="post">
+        <div class="form-group">
+            <label class="control-label col-md-2">Nome</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="Nome" id="Nome" />
+                <span class="text-danger" id="erroNome" name="erroNome"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Email</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="Email" id="Email" />
+                <span class="text-danger" id="erroEmail" name="erroEmail"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">CPF</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="CPF" id="CPF" />
+                <span class="text-danger" id="erroCPF" name="erroECPF"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Senha</label>
+            <div class="col-md-10">
+                <input class="form-control" type="password" name="Senha" id="Senha" />
+                <span class="text-danger" id="erroSenha" name="erroSenha"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Confirmar Senha</label>
+            <div class="col-md-10">
+                <input class="form-control" type="password" name="ConfirmarSenha" id="ConfirmarSenha" />
+                <span class="text-danger" id="erroConfirmarSenha" name="erroConfirmarSenha"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input name="BotaoEnviar" id="BotaoEnviar" type="submit" value="Cadastrar" />
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            $("#BotaoEnviar").click(function (e) {
+
+                var nome = $("#Nome").val();
+                var cpf = $("#CPF").val();
+                var email = $("#Email").val();
+                var senha = $("#Senha").val();
+                var confirmarsenha = $("#ConfirmarSenha").val();
+
+                var sucesso = true;
+
+                if (nome == "") {
+                    $("#erroNome").html("Nome deve ser informado.");
+                    sucesso = false;
+                }
+                else if (nome.length < 5 || nome.length > 40) {
+                    $("#erroNome").html("Nome deve conter entre 5 e 40 caracteres.");
+                    sucesso = false;
+                }
+                else {
+                    $("#erroNome").html("");
+                }
+
+                if (cpf == "") {
+                    $("#erroCPF").html("CPF deve ser informado.");
+                    sucesso = false;
+                }
+                else if (cpf.length != 14) {
+                    $("#erroCPF").html("CPF deve conter 14 caracteres.");
+                    sucesso = false;
+                }
+                else {
+                    $("#erroCPF").html("");
+                }
+
+                if (email == "") {
+                    $("#erroEmail").html("O email deve ser informado.");
+                    sucesso = false;
+                }
+                else if (!validateEmail(email)) {
+                    $("#erroEmail").html("Email inválido.");
+                    sucesso = false;
+                }
+                else {
+                    $("#erroEmail").html("");
+                }
+
+                if (senha.length < 6 || senha.length > 16) {
+                    $("#erroSenha").html("Senha deve conter entre 6 e 16 caracteres");
+                    sucesso = false;
+                }
+
+                if (senha != confirmarsenha) {
+                    $("#erroConfirmarSenha").html("Senhas não batem.");
+                    sucesso = false;
+                }
+
+
+                if (!sucesso) {
+                    e.preventDefault();
+                }
+
+
+            });
+
+        });
+    </script>
+
+}
