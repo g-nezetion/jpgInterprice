@@ -9,7 +9,7 @@ namespace DAO
 {
     public class JPGContext: DbContext
     {
-        public JPGContext(DbContextOptions<JPGContext> kkk)
+        public JPGContext(DbContextOptions<JPGContext> options) : base (options)
         {
 
         }

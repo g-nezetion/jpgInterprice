@@ -6,12 +6,16 @@
 <h1>Cadastrar</h1>
 
 <img src="https://storage.googleapis.com/maltebrasil_smserver/pack-2-cervejas-fritz-500ml_0862.jpeg" style="width:100%; height:100%; position:absolute; z-index:-1">
+
+<div class="container" style="background-color:blue">
 <div class="form-horizontal">
     <form method="post">
+
         <div class="form-group">
+
             <label class="control-label col-md-2">Nome</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" name="Name" id="Nome" />
+                <input type="text" name="Nome" size="40" />
                 <span class="text-danger" id="erroNome" name="erroNome"></span>
             </div>
         </div>
@@ -19,7 +23,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Email</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" name="Email" id="Email" />
+                <input type="text" name="Email" size="40" />
                 <span class="text-danger" id="erroEmail" name="erroEmail"></span>
             </div>
         </div>
@@ -27,7 +31,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Data de Nascimento</label>
             <div class="col-md-10">
-                <input class="form-control" type="date" name="DataNascimento" id="DataNascimento" />
+                <input type="date" id="date" name="DataNascimento" size="40" />
                 <span class="text-danger" id="erroDataNascimento" name="erroDataNascimento"></span>
             </div>
         </div>
@@ -42,22 +46,23 @@
                 <select class="form-control" name="CoutryDrinks" id="PaisOrigem">
                     @for (int i = 0; i < coutry.Length; i++)
                     {
-                    <option value="@i">@coutry[i]</option>
+                        <option value="@i">@coutry[i]</option>
                     }
                 </select>
             </div>
+
         </div>
 
         <div class="form-group">
-                <label class="control-label col-md-2">Drink</label>
-                <div class="col-md-10">
-                    <select class="form-control" name="Drinks" id="DrinkID">
-                        @foreach (var item in ViewBag.Drinks)
-                        {
-                            <option value="@item.ID">@item.Name</option>
-                        }
-                    </select>
-                </div>
+            <label class="control-label col-md-2">Drink</label>
+            <div class="col-md-10">
+                <select class="form-control" name="Drinks" id="DrinkID">
+                    @foreach (var item in ViewBag.Drinks)
+                    {
+                        <option value="@item.ID">@item.Name</option>
+                    }
+                </select>
+            </div>
         </div>
 
         @{
@@ -67,10 +72,10 @@
         <div class="form-group">
             <label class="control-label col-md-2">Qauntidade por Garrafa</label>
             <div class="col-md-10">
-                <select class="form-control" name="QuantityPerBottle" id="Quantity">
+                <select class="form-control" name="QuantityPerBottle" id="Quantity" width="20px">
                     @for (int i = 0; i < quantity.Length; i++)
                     {
-                    <option value="@i">@quantity[i]</option>
+                        <option value="@i">@quantity[i]</option>
                     }
                 </select>
             </div>
@@ -79,7 +84,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Senha</label>
             <div class="col-md-10">
-                <input class="form-control" type="password" name="Senha" id="Senha" />
+                <input type="password" name="Senha" size="40" />
                 <span class="text-danger" id="erroSenha" name="erroSenha"></span>
             </div>
         </div>
@@ -87,7 +92,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Confirmar Senha</label>
             <div class="col-md-10">
-                <input class="form-control" type="password" name="ConfirmarSenha" id="ConfirmarSenha" />
+                <input type="text" name="Confirmarsenha" size="40" />
                 <span class="text-danger" id="erroConfirmarSenha" name="erroConfirmarSenha"></span>
             </div>
         </div>
@@ -98,9 +103,13 @@
             </div>
         </div>
 
+
+
     </form>
 
 </div>
+</div>
+
 
 @section scripts{
 

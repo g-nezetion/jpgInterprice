@@ -19,8 +19,6 @@ namespace jpgInterprice.Controllers
             this._drinkService = DrinkService;
 
         }
-
-       
         public IActionResult Index()
         {
             return View();

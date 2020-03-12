@@ -35,7 +35,7 @@ namespace jpgInterprice
             services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
-            services.AddDbContextPool<JPGContext>(options => options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\900184\\Documents\\jpgInterprice.mdf;Integrated Security=True;Connect Timeout=30"));
+            services.AddDbContextPool<JPGContext>(options => options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=jpgInterpriceDB;Integrated Security=True"));
 
             services.AddControllersWithViews();
         }
