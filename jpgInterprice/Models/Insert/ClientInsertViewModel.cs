@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,5 +15,7 @@ namespace jpgInterprice.Models.Insert
         public DateTime DataNascimento { get; set; }
         public string Senha { get; set; }
         public int DrinkID { get; set; }
+        public CoutryDrinks CoutryDrinks { get; set; }
+        public QuantityPerBottle QuantityPerBottle { get; set; }
     }
 }

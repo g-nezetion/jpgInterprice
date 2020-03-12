@@ -65,12 +65,22 @@ namespace BLL.Impl
                     throw new Exception("o cpf deve conter 14 caracteres");
                 }
             }
+            await employeeRepository.Create(employee);
 
         }
 
         public async Task<List<EmployeeDTO>> GetEmployee()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await employeeRepository.GetEmployee();
+            }
+            catch (Exception ex)
+            {
+                File.WriteAllText("log.txt", ex.Message + " - " + ex.StackTrace);
+
+                throw new Exception("Erro no banco de dados, contate o administrador");
+            }
         }
     }
 }

@@ -11,7 +11,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Nome</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" name="Nome" id="Nome" />
+                <input class="form-control" type="text" name="Name" id="Name" />
                 <span class="text-danger" id="erroNome" name="erroNome"></span>
             </div>
         </div>
@@ -19,7 +19,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Teor Alcoolico (%)</label>
             <div class="col-md-10">
-                <input class="form-control" type="number" name="Alcool" id="Alcool" />
+                <input class="form-control" type="number" name="Alcohol" id="Alcohol" />
                 <span class="text-danger" id="erroAlcool" name="erroAlcool"></span>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Decrição</label>
             <div class="col-md-10">
-                <input class="form-control" type="text" name="Decription" id="Decription" />
+                <input class="form-control" type="text" name="Description" id="Description" />
                 <span class="text-danger" id="erroDecription" name="erroDecription"></span>
             </div>
         </div>
@@ -39,10 +39,10 @@
         <div class="form-group">
             <label class="control-label col-md-2">País de origem</label>
             <div class="col-md-10">
-                <select class="form-control" name="PaisOrigem" id="PaisOrigem">
+                <select class="form-control" name="CoutryDrinks" id="PaisOrigem">
                     @for (int i = 0; i < coutry.Length; i++)
                     {
-                    <option value="@i">@coutry[i]</option>
+                        <option value="@i">@coutry[i]</option>
                     }
                 </select>
             </div>
@@ -55,10 +55,10 @@
         <div class="form-group">
             <label class="control-label col-md-2">Qauntidade por Garrafa</label>
             <div class="col-md-10">
-                <select class="form-control" name="Quantity" id="Quantity">
+                <select class="form-control" name="QuantityPerBottle" id="QuantityPerBottle">
                     @for (int i = 0; i < quantity.Length; i++)
                     {
-                    <option value="@i">@quantity[i]</option>
+                        <option value="@i">@quantity[i]</option>
                     }
                 </select>
             </div>
@@ -70,6 +70,16 @@
             </div>
         </div>
 
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p class="bg-warning">@ViewBag.ErrorMessage</p>
+                </div>
+            </div>
+        }
+
+
     </form>
 
 </div>
@@ -80,9 +90,9 @@
 
         $("#BotaoEnviar").click(function (e) {
 
-        var nome = $("#Nome").val();
-        var alcool = $("#Alcool").val();
-        var descrption = $("#Deion").val();
+        var nome = $("#Name").val();
+        var alcohol = $("#Alcohol").val();
+        var descrption = $("#Description").val();
 
         var sucesso = true;
 
@@ -98,6 +108,13 @@
         $("#erroNome").html("");
             }
 
+            if (alcohol == "") {
+        $("#erroAlcool").html("O teor deve ser informado.");
+        sucesso = false;
+        }
+        else {
+        $("#erroAlcool").html("");
+            }
         if (description == "") {
         $("#erroDescription").html("descrição deve ser informada.");
         sucesso = false;

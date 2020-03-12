@@ -49,7 +49,8 @@ namespace BLL.Impl
                     throw new Exception("o email deve conter de 2 a 100 caracteres");
                 }
             }
-            
+            await _clientRepository.Create(client);
+
         }
 
         public async Task<List<ClientDTO>> GetClient()

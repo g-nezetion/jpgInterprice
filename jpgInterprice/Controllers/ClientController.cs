@@ -25,9 +25,9 @@ namespace jpgInterprice.Controllers
             this._drinksService = drinksService;
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewBag.Drinks = _drinksService.GetDrinks().Result;
+            ViewBag.Drinks = await _drinksService.GetDrinks();
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace jpgInterprice.Controllers
             ClientDTO dto = mapper.Map<ClientDTO>(viewModel);
             try
             {
-                _clientService.Create(dto);
+                await _clientService.Create(dto);
                 return RedirectToAction("Home", "Index");
             }
             catch (NecoException ex)

@@ -9,4 +9,4 @@ No database provider has been configured for this DbContext. A provider can be c
    at System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.GetAsyncEnumerator()
    at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
    at DAO.DrinkRepository.GetDrinks() in C:\Users\900184\source\repos\jpgInterprice\DAO\DrinkRepository.cs:line 26
-   at BLL.Impl.DrinksService.GetDrinks() in C:\Users\900184\source\repos\jpgInterprice\BLL\Impl\DrinksService.cs:line 57
+   at BLL.Impl.DrinksService.GetDrinks() in C:\Users\900184\source\repos\jpgInterprice\BLL\Impl\DrinksService.cs:line 56

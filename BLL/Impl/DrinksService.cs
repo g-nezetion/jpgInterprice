@@ -18,7 +18,6 @@ namespace BLL.Impl
         public DrinksService(IDrinkRepository drinkRepository)
         {
             this._drinkRepository = drinkRepository;
-
         }
 
         public async Task Create(DrinkDTO drink)
@@ -47,7 +46,7 @@ namespace BLL.Impl
                     throw new Exception("o descirção deve conter de 2 a 100 caracteres");
                 }
             }
-
+            await _drinkRepository.Create(drink);
         }
 
         public async Task<List<DrinkDTO>> GetDrinks()
@@ -59,6 +58,7 @@ namespace BLL.Impl
             catch (Exception ex)
             {
                 File.WriteAllText("log.txt", ex.Message + " - " + ex.StackTrace);
+                
                 throw new Exception("Erro no banco de dados, contate o administrador");
             }
         }

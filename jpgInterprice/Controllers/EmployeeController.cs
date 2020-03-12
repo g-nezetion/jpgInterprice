@@ -37,7 +37,7 @@ namespace jpgInterprice.Controllers
             EmployeeDTO dto = mapper.Map<EmployeeDTO>(viewModel);
             try
             {
-                _employeeService.Create(dto);
+                await _employeeService.Create(dto);
                 return RedirectToAction("Home", "Index");
             }
             catch (NecoException ex)

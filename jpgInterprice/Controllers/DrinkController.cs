@@ -41,10 +41,11 @@ namespace jpgInterprice.Controllers
             });
 
             IMapper mapper = configuration.CreateMapper();
+           
             DrinkDTO dto = mapper.Map<DrinkDTO>(viewModel);
             try
             {
-                _drinkService.Create(dto);
+                await _drinkService.Create(dto);
                 return RedirectToAction("Home", "Index");
             }
             catch (NecoException ex)
