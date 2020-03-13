@@ -14,8 +14,5 @@ namespace jpgInterprice.Models.Insert
         public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Senha { get; set; }
-        public int DrinkID { get; set; }
-        public CoutryDrinks CoutryDrinks { get; set; }
-        public QuantityPerBottle QuantityPerBottle { get; set; }
     }
 }

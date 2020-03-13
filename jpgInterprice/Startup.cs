@@ -34,6 +34,8 @@ namespace jpgInterprice
             services.AddTransient<IDrinkRepository, DrinkRepository>();
             services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<IShoppingService, ShoppingService>();
+            services.AddTransient<IShoppingRepository, ShoppingRepository>();
 
             services.AddDbContextPool<JPGContext>(options => options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=jpgInterpriceDB;Integrated Security=True"));
 

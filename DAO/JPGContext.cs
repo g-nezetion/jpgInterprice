@@ -17,6 +17,7 @@ namespace DAO
         public DbSet<EmployeeDTO> Employees { get; set; }
         public DbSet<DrinkDTO> Drinks { get; set; }
         public DbSet<ClientDTO> Clients { get; set; }
+        public DbSet<ShoppingDTO> Shopping { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

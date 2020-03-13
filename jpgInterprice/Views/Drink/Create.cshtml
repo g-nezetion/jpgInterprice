@@ -5,132 +5,133 @@
 
 <h1>Create</h1>
 
-<div class="form-horizontal">
-   <fieldset>
-    <form method="post">
-        <div class="form-group">
-            <label class="control-label col-md-2">Nome</label>
-            <div class="col-md-10">
-                <input class="form-control" type="text" name="Name" id="Name" />
-                <span class="text-danger" id="erroNome" name="erroNome"></span>
-            </div>
-        </div>
+<div class="container" style="background-color:antiquewhite">
 
-        <div class="form-group">
-            <label class="control-label col-md-2">Teor Alcoolico (%)</label>
-            <div class="col-md-10">
-                <input class="form-control" type="number" name="Alcohol" id="Alcohol" />
-                <span class="text-danger" id="erroAlcool" name="erroAlcool"></span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">Decrição</label>
-            <div class="col-md-10">
-                <input class="form-control" type="text" name="Description" id="Description" />
-                <span class="text-danger" id="erroDecription" name="erroDecription"></span>
-            </div>
-        </div>
-
-        @{
-            string[] coutry = Enum.GetNames(typeof(DTO.Enums.CoutryDrinks));
-        }
-
-        <div class="form-group">
-            <label class="control-label col-md-2">País de origem</label>
-            <div class="col-md-10">
-                <select class="form-control" name="CoutryDrinks" id="PaisOrigem">
-                    @for (int i = 0; i < coutry.Length; i++)
-                    {
-                        <option value="@i">@coutry[i]</option>
-                    }
-                </select>
-            </div>
-        </div>
-
-        @{
-            string[] quantity = Enum.GetNames(typeof(DTO.Enums.QuantityPerBottle));
-        }
-
-        <div class="form-group">
-            <label class="control-label col-md-2">Qauntidade por Garrafa</label>
-            <div class="col-md-10">
-                <select class="form-control" name="QuantityPerBottle" id="QuantityPerBottle">
-                    @for (int i = 0; i < quantity.Length; i++)
-                    {
-                        <option value="@i">@quantity[i]</option>
-                    }
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-10">
-                <input name="BotaoEnviar" id="BotaoEnviar" type="submit" value="Cadastrar" />
-            </div>
-        </div>
-
-        @if (ViewBag.ErrorMessage != null)
-        {
-            <div class="form-group">
-                <div class="col-md-10">
-                    <p class="bg-warning">@ViewBag.ErrorMessage</p>
+    <div class="form-horizontal">
+            <form method="post">
+                <div class="form-group">
+                    <label class="control-label col-md-2">Nome</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="text" name="Name" id="Name" />
+                        <span class="text-danger" id="erroNome" name="erroNome"></span>
+                    </div>
                 </div>
-            </div>
-        }
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Teor Alcoolico (%)</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="number" name="Alcohol" id="Alcohol" />
+                        <span class="text-danger" id="erroAlcool" name="erroAlcool"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Decrição</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="text" name="Description" id="Description" />
+                        <span class="text-danger" id="erroDecription" name="erroDecription"></span>
+                    </div>
+                </div>
+
+                @{
+                    string[] coutry = Enum.GetNames(typeof(DTO.Enums.CoutryDrinks));
+                }
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">País de origem</label>
+                    <div class="col-md-10">
+                        <select class="form-control" name="CoutryDrinks" id="PaisOrigem">
+                            @for (int i = 0; i < coutry.Length; i++)
+                            {
+                                <option value="@i">@coutry[i]</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                @{
+                    string[] quantity = Enum.GetNames(typeof(DTO.Enums.QuantityPerBottle));
+                }
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Qauntidade por Garrafa</label>
+                    <div class="col-md-10">
+                        <select class="form-control" name="QuantityPerBottle" id="QuantityPerBottle">
+                            @for (int i = 0; i < quantity.Length; i++)
+                            {
+                                <option value="@i">@quantity[i]</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input name="BotaoEnviar" id="BotaoEnviar" type="submit" value="Cadastrar" />
+                    </div>
+                </div>
+
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p class="bg-warning">@ViewBag.ErrorMessage</p>
+                        </div>
+                    </div>
+                }
 
 
-    </form>
-   </fieldset>
+            </form>
+    </div>
 </div>
 
-@section scripts{
+    @section scripts{
 
-    <script type="text/javascript">
+        <script type="text/javascript">
 
-        $("#BotaoEnviar").click(function (e) {
+            $("#BotaoEnviar").click(function (e) {
 
-        var nome = $("#Name").val();
-        var alcohol = $("#Alcohol").val();
-        var descrption = $("#Description").val();
+                var nome = $("#Name").val();
+                var alcohol = $("#Alcohol").val();
+                var descrption = $("#Description").val();
 
-        var sucesso = true;
+                var sucesso = true;
 
-        if (nome == "") {
-        $("#erroNome").html("Nome deve ser informado.");
-        sucesso = false;
-        }
-        else if (nome.length < 5 || nome.length > 40) {
-        $("#erroNome").html("Nome deve conter entre 5 e 40 caracteres.");
-        sucesso = false;
-        }
-        else {
-        $("#erroNome").html("");
-            }
+                if (nome == "") {
+                    $("#erroNome").html("Nome deve ser informado.");
+                    sucesso = false;
+                }
+                else if (nome.length < 5 || nome.length > 40) {
+                    $("#erroNome").html("Nome deve conter entre 5 e 40 caracteres.");
+                    sucesso = false;
+                }
+                else {
+                    $("#erroNome").html("");
+                }
 
-            if (alcohol == "") {
-        $("#erroAlcool").html("O teor deve ser informado.");
-        sucesso = false;
-        }
-        else {
-        $("#erroAlcool").html("");
-            }
-        if (description == "") {
-        $("#erroDescription").html("descrição deve ser informada.");
-        sucesso = false;
-        }
-        else if (description.length < 5 || description.length > 40) {
-        $("#erroDescription").html("descrição deve conter entre 5 e 40 caracteres.");
-        sucesso = false;
-        }
-        else {
-        $("#erroDescription").html("");
-        }
+                if (alcohol == "") {
+                    $("#erroAlcool").html("O teor deve ser informado.");
+                    sucesso = false;
+                }
+                else {
+                    $("#erroAlcool").html("");
+                }
+                if (description == "") {
+                    $("#erroDescription").html("descrição deve ser informada.");
+                    sucesso = false;
+                }
+                else if (description.length < 5 || description.length > 40) {
+                    $("#erroDescription").html("descrição deve conter entre 5 e 40 caracteres.");
+                    sucesso = false;
+                }
+                else {
+                    $("#erroDescription").html("");
+                }
 
-        if (!sucesso) {
-        e.preventDefault();
-        }
-        });
-    </script>
-}
+                if (!sucesso) {
+                    e.preventDefault();
+                }
+            });
+        </script>
+    }
 

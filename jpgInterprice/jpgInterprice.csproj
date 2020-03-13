@@ -21,6 +21,10 @@
     <ProjectReference Include="..\DTO\DTO.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\adesivo-de-azulejo-rotulos-cervejas-adesivo-azulejo.jpg" />
+  </ItemGroup>
+
 
 
 </Project>
