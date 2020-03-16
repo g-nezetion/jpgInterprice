@@ -22,7 +22,7 @@ namespace BLL.Impl
             this.employeeRepository = repo;
         }
 
-        public async Task<EmployeeDTO> Autententicar(string email, string password)
+        public async Task<EmployeeDTO> Autenticar(string email, string password)
         {
             return await employeeRepository.Authenticate(email, password);
         }

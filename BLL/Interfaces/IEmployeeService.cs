@@ -10,6 +10,6 @@ namespace BLL.Interfaces
     {
         Task Create(EmployeeDTO employee);
         Task<List<EmployeeDTO>> GetEmployee();
-        Task<EmployeeDTO> Autententicar(string email, string password);
+        Task<EmployeeDTO> Autenticar(string email, string password);
     }
 }

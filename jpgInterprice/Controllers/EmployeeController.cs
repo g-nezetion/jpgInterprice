@@ -58,11 +58,10 @@ namespace jpgInterprice.Controllers
         [HttpPost]
         public async Task<IActionResult> Autenticar(string email, string senha)
         {
-
             //@if(ViewBag.Erro != null){<p class="color: red;">@ViewBag.Erro</p>}
             try
             {
-                EmployeeDTO employee = await _employeeService.Autententicar(email, senha);
+                EmployeeDTO employee = await _employeeService.Autenticar(email, senha);
 
                 //celinho vai mostrar pra nois S2
 

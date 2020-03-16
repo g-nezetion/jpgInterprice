@@ -20,6 +20,9 @@ namespace jpgInterprice.Controllers
 
         public IActionResult Index()
         {
+            Response.Cookies.Append("Carrinho_Compras", "");
+            var Carrinho = Request.Cookies["Carrinho_Compras"];
+
             return View();
         }
 

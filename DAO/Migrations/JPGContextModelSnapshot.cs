@@ -73,13 +73,21 @@ namespace DAO.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Foto")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("QuantityPerBottle")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ShoppingDTOID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("ShoppingDTOID");
 
                     b.ToTable("Drinks");
                 });
@@ -108,11 +116,30 @@ namespace DAO.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("DTO.ShoppingDTO", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Shopping");
+                });
+
             modelBuilder.Entity("DTO.ClientDTO", b =>
                 {
                     b.HasOne("DTO.DrinkDTO", "Drinks")
                         .WithMany("Clientes")
                         .HasForeignKey("DrinksID");
+                });
+
+            modelBuilder.Entity("DTO.DrinkDTO", b =>
+                {
+                    b.HasOne("DTO.ShoppingDTO", null)
+                        .WithMany("Drinks")
+                        .HasForeignKey("ShoppingDTOID");
                 });
 #pragma warning restore 612, 618
         }

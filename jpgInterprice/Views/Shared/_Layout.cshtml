@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - jpgInterprice</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
 </head>
 <body>
     <header>
@@ -20,7 +22,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1" >
+                    <ul class="navbar-nav flex-grow-1">
 
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">INÍCIO</a>
@@ -28,8 +30,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Client" asp-action="Create">CADASTRAR-SE</a>
                         </li>
+                        @*<li class="nav-item">
+            <a class="nav-link text-white" asp-area="" asp-controller="HBSIS" asp-action="hbsis">HBSIS</a>
+        </li>*@
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="HBSIS" asp-action="hbsis">HBSIS</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Produto" asp-action="add">COMPRAS</a>
+                        </li>
+                        <li class="nav-item">
+                        </li>
+                        <li>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Produto" asp-action="add">
+                                <i style="color:white;" class="icon-shopping-cart">
+                                </i>
+                            </a>
                         </li>
                     </ul>
                 </div>

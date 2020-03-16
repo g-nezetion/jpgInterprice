@@ -17,7 +17,6 @@ namespace jpgInterprice.Controllers
         public DrinkController(IDrinksService DrinkService)
         {
             this._drinkService = DrinkService;
-
         }
         public IActionResult Index()
         {
@@ -26,7 +25,6 @@ namespace jpgInterprice.Controllers
 
         public IActionResult Create()
         {
-            
             return View();
         }
 

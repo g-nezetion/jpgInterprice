@@ -13,6 +13,7 @@ namespace DTO
         public int Alcohol { get; set; }
         public QuantityPerBottle QuantityPerBottle { get; set; }
         public virtual ICollection<ClientDTO> Clientes { get; set; }
+        public byte[] Foto { get; set; }
         public DrinkDTO()
         {
             this.Clientes = new List<ClientDTO>();

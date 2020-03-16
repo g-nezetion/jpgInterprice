@@ -36,9 +36,7 @@ namespace jpgInterprice
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddTransient<IShoppingService, ShoppingService>();
             services.AddTransient<IShoppingRepository, ShoppingRepository>();
-
-            services.AddDbContextPool<JPGContext>(options => options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=jpgInterpriceDB;Integrated Security=True"));
-
+            services.AddDbContextPool<JPGContext>(options => options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=TesteDb.mdf;Integrated Security=SSPI;Connect Timeout=30"));
             services.AddControllersWithViews();
         }
 

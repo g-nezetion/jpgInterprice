@@ -49,6 +49,17 @@ namespace BLL.Impl
                     throw new Exception("o email deve conter de 2 a 100 caracteres");
                 }
             }
+
+            TimeSpan ts = DateTime.Now.Subtract(client.DataNascimento);
+            int idade = (int)(ts.TotalDays / 365);
+            if (idade < 18)
+            {
+                throw new Exception("Você é menor de idade e não pode comprar bebida alcoolica");
+            }
+
+
+            base.CheckErrors();
+
             await _clientRepository.Create(client);
 
         }
